@@ -1,7 +1,7 @@
 ## Cat Gif Loader
 
 Random cat gif loader.  
-[Website](cat-loader.ddns.net)  
+[Website](http://cat-loader.ddns.net/)  
 
 [![forthebadge](http://forthebadge.com/images/badges/contains-cat-gifs.svg)](http://forthebadge.com)
 
