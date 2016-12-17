@@ -30,17 +30,10 @@ body {
 	background-color:#fc8d83;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
-	border-radius:6px;
+		padding:6px 24px;
+/*	text-shadow:0px 1px 0px #b23e35;*/
 	border:1px solid #d83526;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #b23e35;
+
 }
 .myButton:hover {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e4685d), color-stop(1, #fc8d83));
@@ -61,4 +54,42 @@ body {
   color:red;
   font-weight: bold;
   transition:opacity 1s linear;
+}
+
+.disabled{
+	cursor: not-allowed;
+	pointer-events: none;
+	opacity:0.7;
+}
+
+.facebookButton {
+    background: none;
+    border: none;
+    background-size: 35px 35px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    width: 205px;
+    border-color: #2d5073;
+    background-color: #3b5998;
+    background-image: url(http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png);
+    padding-right:35px;
+}
+
+.button{
+	border-radius:6px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	text-decoration:none;
+	min-width:185px;
+	height:35px;
+	margin-left:4px;
+	margin-right:4px;
+}
+
+.SocialMediaShareButton, .SocialMediaShareButton--facebook{
+	display:inline-block;
 }
