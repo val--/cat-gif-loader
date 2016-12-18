@@ -1,33 +1,84 @@
-body {
-  margin: 0;
-  padding: 0;
-/*  background-image: url("seigaiha.png");*/
-  background-image: url("stardust.png");
-  font-family: 'Lobster', cursive;
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("stardust.png");
+    font-family: 'Lobster', cursive;
 }
 
-button:focus {outline:0;}
-
-.imageContainer{
-  margin-top:10px;
-  margin-bottom:10px;
-  height:420px;
+button:focus {
+    outline:0;
 }
 
-@media screen and (max-width: 680px) {
-	.imageContainer{
-	height:270px;
-	}
+/* Mobile */
+@media (max-width: 640px) {
+    .imageContainer {
+        height:auto;
+        width:100%;
+    }
+    
+    .input-link-box{
+        height:17px;
+        width:240px;
+        padding: 7px 8px;
+        font-size: 13px;
+        color: #333;
+        vertical-align: middle;
+        background-color: #efefef;
+        background-repeat: no-repeat;
+        background-position: right 8px center;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        outline: none;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+    }
+    
+    #theCat{
+        width:100%;
+        -moz-box-shadow: 8px 8px 8px 0px #343434;
+        -webkit-box-shadow: 8px 8px 8px 0px #343434;
+        -o-box-shadow: 8px 8px 8px 0px #343434;
+        box-shadow: 8px 8px 8px 0px #343434;
+        filter:progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=134, Strength=8);
+    }
 }
 
-#theCat{
-  height:100%;
--moz-box-shadow: 8px 8px 8px 0px #343434;
--webkit-box-shadow: 8px 8px 8px 0px #343434;
--o-box-shadow: 8px 8px 8px 0px #343434;
-box-shadow: 8px 8px 8px 0px #343434;
-filter:progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=134, Strength=8);
+/* PC screen */
+@media (min-width: 601px) {
+    
+    .imageContainer{
+        margin-top:10px;
+        margin-bottom:10px;
+        height:420px;
+    }
+    .input-link-box{
+        height:17px;
+        width:300px;
+        padding: 7px 8px;
+        font-size: 13px;
+        color: #333;
+        vertical-align: middle;
+        background-color: #efefef;
+        background-repeat: no-repeat;
+        background-position: right 8px center;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        outline: none;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+    }   
+    #theCat{
+        height:100%;
+        -moz-box-shadow: 8px 8px 8px 0px #343434;
+        -webkit-box-shadow: 8px 8px 8px 0px #343434;
+        -o-box-shadow: 8px 8px 8px 0px #343434;
+        box-shadow: 8px 8px 8px 0px #343434;
+        filter:progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=134, Strength=8);
+    }
+    
 }
+
+
+
+
 
 .loaded{
 	display:inline-block;
@@ -103,6 +154,7 @@ filter:progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=134, St
 	height:35px;
 	margin-left:4px;
 	margin-right:4px;
+	margin-top: 8px
 }
 
 .SocialMediaShareButton, .SocialMediaShareButton--facebook{
@@ -150,21 +202,6 @@ display:block;
 	margin-right:8px;
 }
 
-.input-link-box{
-	height:17px;
-	width:300px;
-  padding: 7px 8px;
-  font-size: 13px;
-  color: #333;
-  vertical-align: middle;
-  background-color: #efefef;
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  outline: none;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
-}
 
 .clippy{
 	vertical-align: -9px;
