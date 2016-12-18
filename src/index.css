@@ -1,9 +1,12 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background-image: url("seigaiha.png");
+/*  background-image: url("seigaiha.png");*/
+  background-image: url("stardust.png");
+  font-family: 'Lobster', cursive;
 }
+
+button:focus {outline:0;}
 
 .imageContainer{
   margin-top:10px;
@@ -13,6 +16,11 @@ body {
 
 #theCat{
   height:100%;
+-moz-box-shadow: 8px 8px 8px 0px #343434;
+-webkit-box-shadow: 8px 8px 8px 0px #343434;
+-o-box-shadow: 8px 8px 8px 0px #343434;
+box-shadow: 8px 8px 8px 0px #343434;
+filter:progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=134, Strength=8);
 }
 
 .loaded{
@@ -26,27 +34,26 @@ body {
 
 }
 
+.buttonsContainer{
+	margin-top:25px;
+}
+
 .myButton {
 
-	background-color:#d83526;
+/*	background-color:#d83526;*/
+	background-color:#f4a203;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
 		padding:6px 24px;
 /*	text-shadow:0px 1px 0px #b23e35;*/
-	border:1px solid #d83526;
+/*	border:1px solid #d83526;*/
+		border:1px solid #393939;
 		min-width:185px;
 		color:white;
 
 }
 .myButton:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e4685d), color-stop(1, #fc8d83));
-	background:-moz-linear-gradient(top, #e4685d 5%, #fc8d83 100%);
-	background:-webkit-linear-gradient(top, #e4685d 5%, #fc8d83 100%);
-	background:-o-linear-gradient(top, #e4685d 5%, #fc8d83 100%);
-	background:-ms-linear-gradient(top, #e4685d 5%, #fc8d83 100%);
-	background:linear-gradient(to bottom, #e4685d 5%, #fc8d83 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e4685d', endColorstr='#fc8d83',GradientType=0);
-	background-color:#e4685d;
+	background-color:#d6c396;
 }
 .myButton:active {
 	position:relative;
@@ -54,7 +61,7 @@ body {
 }
 
 .catsSeen{
-  color:#d83526;
+/*  color:#d83526;*/
   font-weight: bold;
   transition:opacity 1s linear;
 }
@@ -138,13 +145,13 @@ display:block;
 }
 
 .input-link-box{
-	height:20px;
-	width:310px;
+	height:17px;
+	width:300px;
   padding: 7px 8px;
   font-size: 13px;
   color: #333;
   vertical-align: middle;
-  background-color: #fff;
+  background-color: #efefef;
   background-repeat: no-repeat;
   background-position: right 8px center;
   border: 1px solid #ccc;
@@ -154,17 +161,22 @@ display:block;
 }
 
 .clippy{
-	vertical-align: -10px;
-	width:18px;
-	height:18px;
+	vertical-align: -9px;
+	width:17px;
+	height:17px;
 	padding:5px;
 
 }
 
 .link-box-container{
-	margin-top:15px;
+	margin-top:25px;
 }
 
 #cat-smiley{
 	margin-left:5px;
+}
+
+.lead{
+	color:white;
+	margin-top:30px;
 }

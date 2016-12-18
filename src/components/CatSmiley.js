@@ -9,17 +9,21 @@ class CatSmiley extends React.Component {
         const catsSeen = this.props.catsSeen;
         
         // Can't use a function because of smiley return type ?
-        if(catsSeen >= 0 && catsSeen <= 5){
+        if(catsSeen >= 0 && catsSeen <= 10){
             return(
                 <span id="cat-smiley">🐱</span>
             );
-        }else if(catsSeen > 5 && catsSeen <= 20){
+        }else if(catsSeen > 10 && catsSeen <= 25){
             return(
                 <span id="cat-smiley">😾</span>
             );
-        }else{
+        }else if(catsSeen > 25 && catsSeen <= 50){
             return(
                 <span id="cat-smiley">😿</span>
+            );
+        }else{
+            return(
+                <span id="cat-smiley">! ! ! 🙀</span>
             );
         }
     }

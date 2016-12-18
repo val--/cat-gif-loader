@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" id="logo" />
-          <h2>Cat Gif Loader</h2>
+          <h2>CAT GIF LOADER</h2>
         </div>
         <CatGif/>
       </div>

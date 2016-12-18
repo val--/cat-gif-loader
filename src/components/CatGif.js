@@ -130,6 +130,13 @@ class CatGif extends React.Component {
                 />
             </div>
             
+            <div className="link-box-container">
+                    <input className="input-link-box" id="input-link-box" value={this.state.linkBox}></input>
+                    <ClipboardButton data-clipboard-text={this.state.linkBox} button-title="I'm a tooltip" button-id="copy-to-clipboard" onSuccess={this.successCopy}>
+                        <img src={clippy} alt="Copy to clipboard" className="clippy"/>
+                    </ClipboardButton>
+            </div>
+            
             <div className="buttonsContainer">
             
                 <button 
@@ -144,18 +151,13 @@ class CatGif extends React.Component {
                     title='Meow !'>
                     <button className="button facebookButton" id="buttonFacebookShare" onClick={() => this.shareOnFacebook()}>Share this gif </button>
                 </FacebookShareButton>
-                
-                <div className="link-box-container">
-                    <input className="input-link-box" id="input-link-box" value={this.state.linkBox}></input>
-                    <ClipboardButton data-clipboard-text={this.state.linkBox} button-title="I'm a tooltip" button-id="copy-to-clipboard" onSuccess={this.successCopy}>
-                        <img src={clippy} alt="Copy to clipboard" className="clippy"/>
-                    </ClipboardButton>
-                </div>
+
 
                 <p className="lead"><span className="you-have-seen">You have seen <span className="catsSeen">{this.state.catsSeen}</span> cat gif 
                 <CatSmiley catsSeen={this.state.catsSeen}/>
                 
                 </span><span className="dont-you-have">Don't you have anything better to do ? 🐱</span></p>
+
 
             </div>
         </div>
