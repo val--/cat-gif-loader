@@ -12,27 +12,30 @@ body {
 }
 
 #theCat{
-  
   height:100%;
 }
 
+.loaded{
+	display:inline-block;
+	opacity: 1;
+  transition: 1s opacity;
+}
+
+.not-loaded{
+	opacity: 0;
+
+}
+
 .myButton {
-	-moz-box-shadow:inset 0px 1px 0px 0px #f7c5c0;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #f7c5c0;
-	box-shadow:inset 0px 1px 0px 0px #f7c5c0;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fc8d83), color-stop(1, #e4685d));
-	background:-moz-linear-gradient(top, #fc8d83 5%, #e4685d 100%);
-	background:-webkit-linear-gradient(top, #fc8d83 5%, #e4685d 100%);
-	background:-o-linear-gradient(top, #fc8d83 5%, #e4685d 100%);
-	background:-ms-linear-gradient(top, #fc8d83 5%, #e4685d 100%);
-	background:linear-gradient(to bottom, #fc8d83 5%, #e4685d 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fc8d83', endColorstr='#e4685d',GradientType=0);
-	background-color:#fc8d83;
+
+	background-color:#d83526;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
 		padding:6px 24px;
 /*	text-shadow:0px 1px 0px #b23e35;*/
 	border:1px solid #d83526;
+		min-width:185px;
+		color:white;
 
 }
 .myButton:hover {
@@ -51,7 +54,7 @@ body {
 }
 
 .catsSeen{
-  color:red;
+  color:#d83526;
   font-weight: bold;
   transition:opacity 1s linear;
 }
@@ -68,23 +71,22 @@ body {
     background-size: 35px 35px;
     background-position: right center;
     background-repeat: no-repeat;
-    width: 205px;
+    width: 165px;
     border-color: #2d5073;
     background-color: #3b5998;
     background-image: url(http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png);
     padding-right:35px;
+    color:white;
 }
 
 .button{
 	border-radius:6px;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
 	text-decoration:none;
-	min-width:185px;
 	height:35px;
 	margin-left:4px;
 	margin-right:4px;
@@ -92,4 +94,77 @@ body {
 
 .SocialMediaShareButton, .SocialMediaShareButton--facebook{
 	display:inline-block;
+}
+
+.urlLinkCopy{
+	margin:10px;
+	
+}
+
+.urlLinkCopy input{
+	height:25px;
+	width:350px;
+}
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+.you-have-seen{
+/*font-size:30px;*/
+display:block;
+}
+
+.dont-you-have{
+	display:none;
+}
+
+.copy-to-clipboard{
+	color:black;
+	margin-right:8px;
+}
+
+.input-link-box{
+	height:20px;
+	width:310px;
+  padding: 7px 8px;
+  font-size: 13px;
+  color: #333;
+  vertical-align: middle;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+}
+
+.clippy{
+	vertical-align: -10px;
+	width:18px;
+	height:18px;
+	padding:5px;
+
+}
+
+.link-box-container{
+	margin-top:15px;
+}
+
+#cat-smiley{
+	margin-left:5px;
 }
