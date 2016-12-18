@@ -1,15 +1,19 @@
 import React from 'react';
 import {ShareButtons,} from 'react-share';
-import clippy from '../clippy.svg';
-const {FacebookShareButton} = ShareButtons;
-const ClipboardButton = require('react-clipboard.js');
 
-import CatSmiley from './CatSmiley';
+const {FacebookShareButton} = ShareButtons;
+
+import LoadNewCat from './LoadNewCat';
+import ViewsStatistics from './ViewsStatistics';
+import CopyLink from './CopyLink';
 
 class CatGif extends React.Component {
     
     constructor() {
-    super();
+        super();
+        
+        this.loadCat = this.loadCat.bind(this);
+        
         this.state = {
           catsSeen: 0,
           currentCatSrc:'',
@@ -68,11 +72,7 @@ class CatGif extends React.Component {
         return url;
     }
     
-    selectLink(link){
-        link.preventDefault();
-        console.log(link.value);
 
-    }
     
     handleImageLoaded(){
         
@@ -109,17 +109,14 @@ class CatGif extends React.Component {
           console.log("visible");
        }
     }
-    
-    successCopy(){
-        var inputText = document.getElementById("input-link-box");
-        inputText.select();
-    }
 
     render() {
     
     const classImg = this.state.gifLoaded ? 'loaded' : 'not-loaded';
+    
     return(
         <div className="container-fluid" id="gifContainer">
+        
             <div className="imageContainer">
                 <img 
                     id="theCat" 
@@ -130,36 +127,20 @@ class CatGif extends React.Component {
                 />
             </div>
             
-            <div className="link-box-container">
-                    <input className="input-link-box" id="input-link-box" value={this.state.linkBox}></input>
-                    <ClipboardButton data-clipboard-text={this.state.linkBox} button-title="I'm a tooltip" button-id="copy-to-clipboard" onSuccess={this.successCopy}>
-                        <img src={clippy} alt="Copy to clipboard" className="clippy"/>
-                    </ClipboardButton>
-            </div>
+            <CopyLink linkBox={this.state.linkBox}/>
             
             <div className="buttonsContainer">
             
-                <button 
-                    className="button myButton" 
-                    id="buttonLoadCat" 
-                    onClick={() => this.loadCat()}>
-                    Load a new cat ! 
-                </button>
+                <LoadNewCat loadCat={this.loadCat}/>
                 
-                <FacebookShareButton
-                    url={this.state.currentCatSrc}
-                    title='Meow !'>
+                <FacebookShareButton url={this.state.currentCatSrc}title='Meow !'>
                     <button className="button facebookButton" id="buttonFacebookShare" onClick={() => this.shareOnFacebook()}>Share this gif </button>
                 </FacebookShareButton>
-
-
-                <p className="lead"><span className="you-have-seen">You have seen <span className="catsSeen">{this.state.catsSeen}</span> cat gif 
-                <CatSmiley catsSeen={this.state.catsSeen}/>
                 
-                </span><span className="dont-you-have">Don't you have anything better to do ? 🐱</span></p>
-
-
+                <ViewsStatistics catsSeen={this.state.catsSeen}/>
+                
             </div>
+            
         </div>
         );
     
