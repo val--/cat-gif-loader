@@ -18,6 +18,21 @@ class CatGif extends React.Component {
         };
     }
     
+    componentWillMount() {
+        
+        const localStorageRef = localStorage.getItem(`catsseen`);
+    
+        if(localStorageRef) {
+          this.setState({
+            catsSeen: localStorageRef
+          });
+        }
+    }
+    
+    componentWillUpdate(nextProps, nextState) {
+        localStorage.setItem(`catsseen`, this.state.catsSeen);
+    }
+    
     loadCat(){
         this.setState({gifLoaded:false})
         this.setState({linkBox:''})
