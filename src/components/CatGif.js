@@ -21,6 +21,13 @@ class CatGif extends React.Component {
           gifLoaded:false
         };
     }
+
+
+    componentDidMount() {
+        this.fetchCat();
+          
+    }
+    
     
     componentWillMount() {
         
@@ -50,30 +57,39 @@ class CatGif extends React.Component {
         button.classList.add("disabled");
         facebookButton.classList.add("disabled");
         
-        var image_url = this.httpGet('http://thecatapi.com/api/images/get.php?format=xml&type=gif');
-        theCat.src = image_url;
-        
-        this.setState({ currentCatSrc:image_url})
+        this.fetchCat();
         
     }
     
-    httpGet(theUrl){
-        var xmlHttp = new XMLHttpRequest();
+    fetchCat() {
         
-        xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-        xmlHttp.send( null );
-
-        var xmlDoc = xmlHttp.responseXML;
-        var url = "";
-        var x = xmlDoc.getElementsByTagName("url");
-        for (var i = 0; i < x.length;  i++) {
-            url += x[i].childNodes[0].nodeValue;
-        }
-        return url;
+        const api_key = 'zoxmGNbuVuqRKg2mXJYYWcGV7JvWJElh';
+        let url = 'https://api.giphy.com/v1/gifs/random?api_key='+api_key+'&tag=cat&rating=G';
+        fetch(url)
+          .then(res => res.json())
+          .then(
+            (result) => {
+                let image_url = result.data.image_original_url;
+                this.setState({
+                    isLoaded: true,
+                    linkBox: image_url,
+                    currentCatSrc: image_url
+                });
+                
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            (error) => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          )
     }
     
 
-    
     handleImageLoaded(){
         
         var image_url = this.state.currentCatSrc;
