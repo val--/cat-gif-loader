@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.gif';
+import logo from './rotatingcat.png';
 import './App.css';
 import CatGif from'./components/CatGif';
 

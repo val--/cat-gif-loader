@@ -11,7 +11,6 @@ class CatGif extends React.Component {
     
     constructor() {
         super();
-        
         this.loadCat = this.loadCat.bind(this);
         
         this.state = {
@@ -24,15 +23,14 @@ class CatGif extends React.Component {
 
 
     componentDidMount() {
-        this.fetchCat();
-          
+        this.loadCat();
     }
     
     
     componentWillMount() {
         
         const localStorageRef = localStorage.getItem(`catsseen`);
-    
+
         if(localStorageRef) {
           this.setState({
             catsSeen: localStorageRef
@@ -40,52 +38,94 @@ class CatGif extends React.Component {
         }
     }
     
+    
     componentWillUpdate(nextProps, nextState) {
         localStorage.setItem(`catsseen`, this.state.catsSeen);
     }
     
+    
     loadCat(){
+
         this.setState({gifLoaded:false})
         this.setState({linkBox:''})
-        var theCat = document.getElementById("theCat");
+        this.setState({currentCatSrc:''})
+        //var theCat = document.getElementById("theCat");
         var logo = document.getElementById("logo");
         var button = document.getElementById("buttonLoadCat");
         var facebookButton = document.getElementById("buttonFacebookShare");
 
-        logo.style.webkitAnimationPlayState = "paused";
+        logo.style.webkitAnimationPlayState = "running";
         button.textContent = "Loading new cat...";
         button.classList.add("disabled");
         facebookButton.classList.add("disabled");
         
-        this.fetchCat();
+        this.fetchGiphyCat();
+        //this.fetchFallbackCat();
+        //logo.style.webkitAnimationPlayState = "paused";
         
     }
     
-    fetchCat() {
+    
+    fetchGiphyCat() {
         
-        const api_key = 'zoxmGNbuVuqRKg2mXJYYWcGV7JvWJElh';
-        let url = 'https://api.giphy.com/v1/gifs/random?api_key='+api_key+'&tag=cat&rating=G';
-        fetch(url)
-          .then(res => res.json())
-          .then(
-            (result) => {
-                let image_url = result.data.image_original_url;
-                this.setState({
+        //const api_key = 'zoxmGNbuVuqRKg2mXJYYWcGV7JvWJElh';
+        const api_key = 'dc6zaTOxFJmzC';
+        let url_giphy = 'https://api.giphy.com/v1/gifs/random?api_key='+api_key+'&tag=cat&rating=G';
+        
+        var logo = document.getElementById("logo");
+        logo.style.webkitAnimationPlayState = "running";
+        console.log("fetching a cat...");
+        
+        fetch(url_giphy)
+            .then(
+                res => res.json())
+            .then(
+                result => {
+                    console.log(result.data);
+                    let image_url = result.data.image_url;
+                    this.setState({
+                        isLoaded: true,
+                        linkBox: image_url,
+                        currentCatSrc: image_url
+                    });
+                    
+                },
+                error => {
+                    console.log(error);
+                    //this.fetchFallbackCat();
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+          )
+    }
+    
+    fetchFallbackCat() {
+        
+        let url_catapi = 'https://thecatapi.com/api/images/get.php?type=gif';
+        
+        fetch(url_catapi, 
+            {mode: 'no-cors'})
+            .then(
+                res => res.json())
+            .then(
+                result => {
+                    let image_url = result.data.url;
+                    this.setState({
+                        isLoaded: true,
+                        linkBox: image_url,
+                        currentCatSrc: image_url
+                    });
+                    
+                },
+                error => {
+     
+                  this.setState({
                     isLoaded: true,
-                    linkBox: image_url,
-                    currentCatSrc: image_url
-                });
-                
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            (error) => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
+                    error
+                  });
+                }
           )
     }
     
@@ -102,63 +142,67 @@ class CatGif extends React.Component {
         var facebookButton = document.getElementById("buttonFacebookShare");
         var logo = document.getElementById("logo");
         
-        logo.style.webkitAnimationPlayState = "running";
+        logo.style.webkitAnimationPlayState = "initial";
+        logo.style.webkitAnimationPlayState = "paused";
         button.classList.remove("disabled");
         facebookButton.classList.remove("disabled");
         
-        var theCat = document.getElementById("theCat");
+        //var theCat = document.getElementById("theCat");
         button.textContent = "Load a new cat ! ";
     }
     
+    
     handleImageErrored(){
-        this.loadCat();
+        //this.loadCat();
     }
+    
     
     toggle_visibility(e) {
        
-       if(e.style.display == 'inline-block'){
+       if(e.style.display === 'inline-block'){
           e.style.display = 'none';
-          console.log("invisible");
        }
        else{
           e.style.display = 'inline-block';
-          console.log("visible");
        }
     }
+    
 
     render() {
     
-    const classImg = this.state.gifLoaded ? 'loaded' : 'not-loaded';
-    
-    return(
-        <div className="container-fluid" id="gifContainer">
+        const classImg = this.state.gifLoaded ? 'loaded' : 'not-loaded';
         
-            <div className="imageContainer">
-                <img 
-                    id="theCat" 
-                    src={this.state.currentCatSrc} 
-                    onLoad={ () => this.handleImageLoaded()}
-                    onError={ () => this.handleImageErrored()}
-                    className={classImg}
-                />
+        return(
+            <div className="container-fluid" id="gifContainer">
+            
+                <div className="imageContainer">
+                    <img 
+                        id="theCat" 
+                        src={this.state.currentCatSrc} 
+                        onLoad={ () => this.handleImageLoaded()}
+                        onError={ () => this.handleImageErrored()}
+                        className={classImg}
+                        alt="cat gif"
+                        title={this.state.currentCatSrc} 
+                    />
+                </div>
+                
+                <CopyLink linkBox={this.state.linkBox}/>
+                
+                <div className="buttonsContainer">
+                
+                    <LoadNewCat loadCat={this.loadCat}/>
+                    
+                    <FacebookShareButton url={this.state.currentCatSrc}title='Meow !'>
+                        <button className="button facebookButton" id="buttonFacebookShare" onClick={() => this.shareOnFacebook()}>Share this gif </button>
+                    </FacebookShareButton>
+                    
+                    <ViewsStatistics catsSeen={this.state.catsSeen}/>
+                    
+                </div>
+                
             </div>
-            
-            <CopyLink linkBox={this.state.linkBox}/>
-            
-            <div className="buttonsContainer">
-            
-                <LoadNewCat loadCat={this.loadCat}/>
-                
-                <FacebookShareButton url={this.state.currentCatSrc}title='Meow !'>
-                    <button className="button facebookButton" id="buttonFacebookShare" onClick={() => this.shareOnFacebook()}>Share this gif </button>
-                </FacebookShareButton>
-                
-                <ViewsStatistics catsSeen={this.state.catsSeen}/>
-                
-            </div>
-            
-        </div>
-        );
+            );
     
     }
 }

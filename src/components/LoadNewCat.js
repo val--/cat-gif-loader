@@ -1,9 +1,9 @@
 import React from 'react';
 
 class LoadNewCat extends React.Component {
-    constructor() {
-        super();
-    }
+    //constructor() {
+    //    super();
+    //}
     
     render() {
         return(

@@ -8,8 +8,8 @@ class ViewsStatistics extends React.Component {
         
             return(
                 <p className="lead">
-                <span className="you-have-seen">You have seen <span className="catsSeen">{this.props.catsSeen}</span> cat gif 
-                <CatSmiley catsSeen={this.props.catsSeen} />
+                <span className="you-have-seen">You have seen <span className="catsSeen">{catsSeen}</span> cat gif 
+                <CatSmiley catsSeen={catsSeen} />
                 </span>
                 </p>
             );

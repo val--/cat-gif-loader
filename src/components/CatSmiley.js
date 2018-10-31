@@ -1,9 +1,9 @@
 import React from 'react';
 
 class CatSmiley extends React.Component {
-    constructor() {
-        super();
-    }
+    //constructor() {
+    //    super();
+    //}
     
     render() {
         const catsSeen = this.props.catsSeen;
