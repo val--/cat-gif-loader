@@ -1,5 +1,5 @@
 import React from 'react';
-const ClipboardButton = require('react-clipboard.js');
+import Clipboard from 'react-clipboard.js';
 import clippy from '../clippy.svg';
 
 class CopyLink extends React.Component {
@@ -17,9 +17,9 @@ class CopyLink extends React.Component {
         return(
             <div className="link-box-container">
                     <input className="input-link-box" id="input-link-box" value={this.props.linkBox}></input>
-                    <ClipboardButton data-clipboard-text={this.props.linkBox} button-title="I'm a tooltip" button-id="copy-to-clipboard" onSuccess={this.successCopy}>
+                    <Clipboard data-clipboard-text={this.props.linkBox} button-title="I'm a tooltip" button-id="copy-to-clipboard" onSuccess={this.successCopy}>
                         <img src={clippy} alt="Copy to clipboard" className="clippy"/>
-                    </ClipboardButton>
+                    </Clipboard>
             </div>
         );
     }

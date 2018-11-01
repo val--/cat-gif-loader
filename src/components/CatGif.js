@@ -1,11 +1,10 @@
 import React from 'react';
 import {ShareButtons,} from 'react-share';
-
-const {FacebookShareButton} = ShareButtons;
-
 import LoadNewCat from './LoadNewCat';
 import ViewsStatistics from './ViewsStatistics';
 import CopyLink from './CopyLink';
+
+const {FacebookShareButton} = ShareButtons;
 
 class CatGif extends React.Component {
     
@@ -21,11 +20,9 @@ class CatGif extends React.Component {
         };
     }
 
-
     componentDidMount() {
         this.loadCat();
     }
-    
     
     componentWillMount() {
         
@@ -38,11 +35,9 @@ class CatGif extends React.Component {
         }
     }
     
-    
     componentWillUpdate(nextProps, nextState) {
         localStorage.setItem(`catsseen`, this.state.catsSeen);
     }
-    
     
     loadCat(){
 
@@ -62,9 +57,7 @@ class CatGif extends React.Component {
         this.fetchGiphyCat();
         //this.fetchFallbackCat();
         //logo.style.webkitAnimationPlayState = "paused";
-        
     }
-    
     
     fetchGiphyCat() {
         
@@ -129,12 +122,11 @@ class CatGif extends React.Component {
           )
     }
     
-
     handleImageLoaded(){
         
         var image_url = this.state.currentCatSrc;
-        
-        this.setState({ catsSeen:++this.state.catsSeen})
+        var nb_cats_seen = this.state.catsSeen;
+        this.setState({ catsSeen:++nb_cats_seen})
         this.setState({ linkBox:image_url})
         this.setState({gifLoaded:true})
         
@@ -151,11 +143,9 @@ class CatGif extends React.Component {
         button.textContent = "Load a new cat ! ";
     }
     
-    
     handleImageErrored(){
         //this.loadCat();
     }
-    
     
     toggle_visibility(e) {
        
@@ -166,7 +156,6 @@ class CatGif extends React.Component {
           e.style.display = 'inline-block';
        }
     }
-    
 
     render() {
     
@@ -207,5 +196,3 @@ class CatGif extends React.Component {
     }
 }
 export default CatGif;
-
-

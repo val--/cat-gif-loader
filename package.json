@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.8.4"
+    "react-scripts": "^2.1.1"
   },
   "dependencies": {
     "clipboard": "^1.5.16",
-    "react": "^15.4.1",
-    "react-clipboard.js": "^1.0.1",
-    "react-dom": "^15.4.1",
+    "react": "^16.6.0",
+    "react-clipboard.js": "^1.1.4",
+    "react-dom": "^16.6.0",
     "react-share": "^1.11.0"
   },
   "scripts": {
@@ -17,5 +17,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
