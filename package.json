@@ -1,8 +1,11 @@
 {
   "name": "cat-loader",
   "version": "0.1.0",
+  "description": "A random cat gif generator application",
+  "author": "Valentin Guillaume <kval.guillaume@gmail.com>",
   "private": true,
   "devDependencies": {
+    "dotenv": "^6.2.0",
     "react-scripts": "^2.1.1"
   },
   "dependencies": {
