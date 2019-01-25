@@ -3,6 +3,7 @@ import {ShareButtons,} from 'react-share';
 import LoadNewCat from './LoadNewCat';
 import ViewsStatistics from './ViewsStatistics';
 import CopyLink from './CopyLink';
+//import loader from '../ajax_loader_gray_350.gif';
 
 const {FacebookShareButton} = ShareButtons;
 

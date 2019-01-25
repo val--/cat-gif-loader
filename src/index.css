@@ -81,14 +81,13 @@ button:focus {
 
 
 .loaded{
-	display:inline-block;
-	opacity: 1;
-  transition: 1s opacity;
+    display:inline-block;
+    opacity: 1;
+    transition: 1s opacity;
 }
 
 .not-loaded{
 	opacity: 0;
-
 }
 
 .buttonsContainer{
