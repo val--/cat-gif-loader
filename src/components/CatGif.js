@@ -138,7 +138,7 @@ class CatGif extends React.Component {
         logo.style.webkitAnimationPlayState = "initial";
         logo.style.webkitAnimationPlayState = "paused";
         button.classList.remove("disabled");
-        facebookButton.classList.remove("disabled");
+        //facebookButton.classList.remove("disabled");
         
         //var theCat = document.getElementById("theCat");
         button.textContent = "Load a new cat ! ";
