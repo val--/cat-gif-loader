@@ -62,8 +62,7 @@ class CatGif extends React.Component {
     
     fetchGiphyCat() {
         
-        //const api_key = 'zoxmGNbuVuqRKg2mXJYYWcGV7JvWJElh';
-        const api_key = 'zoxmGNbuVuqRKg2mXJYYWcGV7JvWJElh';
+        const api_key = 'add-your-own-gify-api-key-here-see-https://developers.giphy.com/';
         let url_giphy = 'https://api.giphy.com/v1/gifs/random?api_key='+api_key+'&tag=cat&rating=G';
         
         var logo = document.getElementById("logo");
