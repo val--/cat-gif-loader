@@ -63,7 +63,7 @@ class CatGif extends React.Component {
     fetchGiphyCat() {
         
         //const api_key = 'zoxmGNbuVuqRKg2mXJYYWcGV7JvWJElh';
-        const api_key = 'dc6zaTOxFJmzC';
+        const api_key = 'zoxmGNbuVuqRKg2mXJYYWcGV7JvWJElh';
         let url_giphy = 'https://api.giphy.com/v1/gifs/random?api_key='+api_key+'&tag=cat&rating=G';
         
         var logo = document.getElementById("logo");
@@ -76,7 +76,7 @@ class CatGif extends React.Component {
             .then(
                 result => {
                     console.log(result.data);
-                    let image_url = result.data.image_url;
+                    let image_url = result.data.images.original.url;
                     this.setState({
                         isLoaded: true,
                         linkBox: image_url,
